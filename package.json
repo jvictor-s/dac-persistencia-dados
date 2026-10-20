@@ -1,0 +1,30 @@
+{
+  "name": "dac-persistencia-dados",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <h1>Persistência de Dados</h1>   <p>Repositório destinado a aplicação acadêmica que permite persistir dados entre dois bancos de dados diferentes usando o conceito de 2PC (Two Phase Commit)</p> </br>   <p>Serão utilizados os ambientes do Postgres & MongoDB</p> </div>",
+  "homepage": "https://github.com/jvictor-s/dac-persistencia-dados#readme",
+  "bugs": {
+    "url": "https://github.com/jvictor-s/dac-persistencia-dados/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvictor-s/dac-persistencia-dados.git"
+  },
+  "license": "ISC",
+  "author": "joao victor e luan",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "mongoose": "^9.11.2",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
