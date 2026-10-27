@@ -1,12 +1,6 @@
 import { pool } from "../config/connectPostgres.js";
 import { User, createUsersTable } from "../model/User.js";
 
-/**
- * Cenário 1:
- * - Insere o usuário em uma tabela no Postgres;
- * - Depois insere o usuário no MongoDB;
- * - Se o insert no MongoDB falhar, faz o ROLLBACK (desfaz) no Postgres.
- */
 export async function insertUserScenarioOne({ name, email }) {
   await createUsersTable();
 
@@ -32,12 +26,7 @@ export async function insertUserScenarioOne({ name, email }) {
   }
 }
 
-/**
- * Cenário 2:
- * - Insere o usuário no MongoDB;
- * - Depois insere o usuário em uma tabela no Postgres;
- * - Se o insert no Postgres falhar, faz o ROLLBACK (remove) no MongoDB.
- */
+
 export async function insertUserScenarioTwo({ name, email }) {
   await createUsersTable();
 

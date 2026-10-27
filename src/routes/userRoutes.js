@@ -3,7 +3,7 @@ import { insertUserScenarioOne, insertUserScenarioTwo } from "../service/userSer
 
 export const userRouter = Router();
 
-// Cenário 1: insere no Postgres primeiro, depois no MongoDB; rollback no Postgres se o Mongo falhar.
+// Cenário 1
 userRouter.post("/scenario1", async (req, res) => {
   try {
     const { name, email } = req.body;
@@ -14,7 +14,7 @@ userRouter.post("/scenario1", async (req, res) => {
   }
 });
 
-// Cenário 2: insere no MongoDB primeiro, depois no Postgres; rollback no Mongo se o Postgres falhar.
+// Cenário 2
 userRouter.post("/scenario2", async (req, res) => {
   try {
     const { name, email } = req.body;
