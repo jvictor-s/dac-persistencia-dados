@@ -17,5 +17,3 @@ export async function connectPostgres() {
   client.release();
   return client;
 }
-
-export { pool }; 
