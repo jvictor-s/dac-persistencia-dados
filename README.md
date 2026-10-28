@@ -19,7 +19,7 @@
 
 - Atualizar os dados no MongoDB e no Postgres enquanto um serviço consulta constantemente (a cada 10ms) a lista de dados de ambos os bancos.
 
-## Como execultar o projeto
+## Como executar o projeto
 
 ```
 ⚠️ ATENÇÃO
@@ -49,6 +49,35 @@ docker compose up -d
 ```
 npm install
 ```
+
+> Passo 4 - inicie a API
+
+```
+npm start
+```
+
+> Passo 5 - execute a bateria automatizada de testes dos cenários
+
+```powershell
+pwsh -File .\test-scenarios.ps1
+```
+
+O servidor inicia na porta `3333` por padrão. A especificação completa dos
+cenários, decisões de arquitetura e comandos de validação está em
+[RELATORIO.MD](./RELATORIO.MD).
+
+### Endpoints
+
+- `POST /users/scenario1`: grava primeiro no PostgreSQL e depois no MongoDB.
+- `POST /users/scenario2`: grava primeiro no MongoDB e depois no PostgreSQL.
+- `PUT /users/scenario3/:email`: atualiza o nome nos dois bancos com coordenação 2PC.
+- `GET /users/consistent`: retorna os registros pareados e o indicador de consistência.
+- `GET /users/monitor`: retorna a última leitura do monitor de 10 ms.
+
+Para reproduzir falhas controladas nos cenários, inclua no JSON
+`"failureAt": "mongodb"`, `"postgres"` ou `"postgres-commit"`. No cenário 3
+também são aceitos `"prepare"`. Essa injeção existe apenas para demonstrar os
+rollbacks e não deve ser exposta em uma API de produção.
 
 <div align="center">
   <p><strong>Equipe:</strong> Joao Victor e Luan</p>
